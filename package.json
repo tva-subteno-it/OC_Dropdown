@@ -1,6 +1,6 @@
 {
   "name": "@redshark61/dropdown",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Dropdown react component",
   "main": "index.tsx",
   "scripts": {
