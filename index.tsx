@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import arrow from "../../assets/uil_arrow.svg";
+import arrow from "assets/uil_arrow.svg";
 import {createPortal} from "react-dom";
 
 interface DropDownProps {
