@@ -6,7 +6,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs && copyfiles -u 1 src/assets/* dist",
+    "build": "yarn build:esm && yarn build:cjs && copyfiles -u 1 src/assets/* dist && tailwindcss build -i src/tailwind.css -o dist/tailwind.css",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
@@ -35,11 +35,11 @@
     "typescript": "^5.0.2"
   },
   "peerDependencies": {
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.28",
     "react": ">=16",
     "react-dom": "^18.2.0",
-    "tailwindcss": "^3.3.3",
-    "autoprefixer": "^10.4.15",
-    "postcss": "^8.4.28"
+    "tailwindcss": "^3.3.3"
   },
   "keywords": [
     "react",
