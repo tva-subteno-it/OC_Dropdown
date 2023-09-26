@@ -1,40 +1,179 @@
 # Dropdown
 
-## Usage
+## Preview
 
-Dropdown component is used to display a list of items in a dropdown box. It can be used to select a single item or multiple items.
+Here you have a preview of the most basic dropdown without any customization.
+![img.png](img/img.png)
 
-You can choose where to display the dropdown box by passing the `position` prop. The default position is bottom.
+## Minimum requirements
 
-You can choose to display the arrow icon by passing the `displayArrow` prop. The default value is true.
+The component requires the following props:
+- `items ({id: string; value: string;}[]`: an array of objects containing the items to display in the dropdown. 
+- `id (string)`: the id of the hidden input that will store the selected items.
+- `label (string)`: the label of the dropdown. Only required if `displayLabel` is true. `displayLabel` is true by default meaning that the label is also required by default.
 
-You have many customization options for the whole dropdown, header and list. You can pass the `dropdownClass`, `boxClass`,  `headerClass` and `listClass` props to customize the whole dropdown (input + list + label, input + list, input, and list respectively).
+## Customization
 
-In addition to the classes, you can pass their corresponding styles (e.g `boxStyle`) prop to customize more precisely the dropdown.
+All available class: 
 
-Some classes are already defined but unused to give you the possibility to customize the dropdown as you want :
-- `dropdown_backdrop`
-- `dropdown_container`
-- `dropdown`
-- `dropdown__header`
-- `dropdown__header__title`
-- `dropdown__header__icon`
-- `dropdown__list`
-- `dropdown__list__item`
-- `dropdown__list__item`
-
-This dropdown contains a hidden input that will be used to store the selected items. You can pass the `id` prop to customize the id of this input. Every selected items is joined by a comma.
-
-A `onSelectionChange` prop ca be passed to the dropdown. It will be called every time the selection changes. It will return the selected items.
+<table>
+<tr>
+<td>  Code </td> <td> Result </td>
+</tr>
+<tr>
+<td>
 
 ```jsx
-<DropDown id={id} label={label} items={data} multiSelect={false} displayArrow={true}
-          dropdownClass={"mt-4 w-full"}
-          boxClass={"bg-primary bg-opacity-10"}
-          boxStyle={{border: "1px solid rgba(40, 25, 14, 0.20)"}}
-          headerClass={"text-black"}
-          listClass={"bg-[#eef0e5] w-full"}
-          placeholder={placeholder}
-          position={position}
+<DropDown 
+    items={items}
+     id={"id"}
+     label={"Test Label"}
+     placeholder={"Test Button"}
+     dropdownClass={"border-black"}
+     boxClass={"border-red"}
+     headerClass={"border-blue"}
+     listClass={"border-green"}
+     itemClass={"border-purple"}
+     labelClass={"color-red"}
 />
 ```
+
+</td>
+<td>
+
+![img_1.png](img/img_10.png)
+
+</td>
+</tr>
+</table>
+
+In addition to their corresponding class, you can pass the same attribute with the `style` suffix instead of `class`to customize the dropdown more precisely (e.g `boxStyle` instead of `boxClass`).
+
+<table>
+<tr>
+<td>  Code </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+
+```jsx                               
+ <DropDown                            
+  items={items}                        
+  id={"id"}                            
+  label={"Test Label"}                 
+  placeholder={"Test Button"}          
+  headerClass={"border-blue"}          
+  itemStyle={{backgroundColor: "red"}} 
+  />                                   
+```    
+
+</td>
+<td>
+
+![img.png](img/img_9.png)
+
+</td>
+</tr>
+</table>
+
+## Example
+
+<table>
+<tr>
+<td>  Code </td> <td> Result </td>
+</tr>
+<tr>
+<td>
+
+```jsx
+<DropDown 
+    items={items}
+     id={"id"}
+     label={"Test Label"}
+     placeholder={"Test Button"}
+     dropdownClass={"dropdown"}
+     boxClass={"box"}
+     headerClass={"header"}
+     headerStyle={{opacity: 1}}
+     listClass={"list"}
+     itemClass={"item"}
+     labelClass={"label"}
+     labelStyle={{fontSize: "1.5rem"}}
+/>
+```
+
+```css
+
+.dropdown{
+    width: 300px;
+    margin: 40% auto auto;
+}
+
+.box{
+    background: darkslateblue;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.header{
+    color: white;
+}
+
+.list{
+    width: 100%;
+}
+
+.label{
+    color: darkslateblue;
+}
+.item{
+    background: white;
+}
+```
+
+</td>
+<td>
+
+![img_2.png](img/img_2.png)
+
+</td>
+</tr>
+</table>
+
+
+## Other props
+
+- `multiSelect (boolean)`: if true, the dropdown will allow multiple selection. If false, only one item can be selected at a time. The default value is false.
+
+  `multiSelect={true}`: ![img_3.png](img/img_3.png)
+
+<br/>
+
+- `displayArrow (boolean)`: if true, the arrow icon will be displayed. If false, the arrow icon will be hidden. The default value is true.
+
+  `displayArrow={false}`: ![img_4.png](img/img_4.png)
+
+<br/>
+
+- `displayLabel (boolean)`: if true, the label will be displayed. If false, the label will be hidden. The default value is true.
+
+  `displayLabel={false}`: ![img_5.png](img/img_5.png)
+
+<br/>
+
+- `displayReset (boolean)`: if true, the reset button will be displayed. If false, the reset button will be hidden. The default value is true.
+
+  `displayReset={false}`: ![img_6.png](img/img_6.png)
+
+<br/>
+
+
+- `position ("top" | "bottom")`: the position of the dropdown box. The default value is bottom.
+
+  `position={"top"}`: ![img_7.png](img/img_7.png)
+
+<br/>
+
+- `customImage (string)` : change the arrow icon.
+
+  `customImage={"./src/assets/arrow.png"}`: ![img_8.png](img/img_8.png)
