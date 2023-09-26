@@ -1,5 +1,18 @@
 # Dropdown
 
+- [Dropdown](#dropdown)
+  - [Introduction](#introduction)
+  - [Preview](#preview)
+  - [Minimum requirements](#minimum-requirements)
+  - [Customization](#customization)
+  - [Example](#example)
+  - [Other props](#other-props)
+
+## Introduction
+
+This component is a dropdown that allows you to select one or more items from a list. It is fully customizable and can be used in any React project.
+In addition to providing a great amount of classes and styles, the component also provides a lot of props to handle the dropdown behavior, such as `onSelectionChange` to handle the selection of an item, or a hidden input to store the selected items.
+
 ## Preview
 
 Here you have a preview of the most basic dropdown without any customization.
@@ -8,7 +21,7 @@ Here you have a preview of the most basic dropdown without any customization.
 ## Minimum requirements
 
 The component requires the following props:
-- `items ({id: string; value: string;}[]`: an array of objects containing the items to display in the dropdown. 
+- `items ({id: string; value: string;}[])`: an array of objects containing the items to display in the dropdown. 
 - `id (string)`: the id of the hidden input that will store the selected items.
 - `label (string)`: the label of the dropdown. Only required if `displayLabel` is true. `displayLabel` is true by default meaning that the label is also required by default.
 
@@ -85,6 +98,8 @@ In addition to their corresponding class, you can pass the same attribute with t
 <tr>
 <td>
 
+JSX
+
 ```jsx
 <DropDown 
     items={items}
@@ -101,6 +116,8 @@ In addition to their corresponding class, you can pass the same attribute with t
      labelStyle={{fontSize: "1.5rem"}}
 />
 ```
+
+CSS
 
 ```css
 
