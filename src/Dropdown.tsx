@@ -22,11 +22,14 @@ interface DropDownProps {
     itemStyle?: React.CSSProperties;
     displayLabel?: boolean;
     label?: string;
+    labelClass?: string;
+    labelStyle?: React.CSSProperties;
     dropdownClass?: string;
     dropdownStyle?: React.CSSProperties;
     placeholder?: string;
     displayReset?: boolean;
     position?: "top" | "bottom";
+    customImage?: string;
 }
 
 export default function DropDown({
@@ -45,11 +48,14 @@ export default function DropDown({
                                      itemStyle,
                                      displayLabel = true,
                                      label,
+                                     labelClass,
+                                     labelStyle,
                                      dropdownClass,
                                      dropdownStyle,
                                      placeholder,
                                      displayReset = true,
-                                     position = "bottom"
+                                     position = "bottom",
+                                     customImage
                                  }: DropDownProps) {
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState<string[]>([]);
@@ -88,62 +94,63 @@ export default function DropDown({
     return (
         <>
             {createPortal(
-                <div className={`dropdown_backdrop inset-0 ${open ? "fixed" : "hidden"}`}
+                <div className={`inset-0 ${open ? "fixed" : "hidden"}`}
                      onClick={() => setOpen(false)}/>, document.body)
             }
-        <div className={`dropdown_container ${dropdownClass}`} style={dropdownStyle && {...dropdownStyle}}>
-            <input id={id} name={id} type={"hidden"} value={selection.join(",")}/>
-            {displayLabel && (
-                <p className={"text-sm font-pt mb-2"}>{label}</p>
-            )}
-            <div
-                className={`dropdown py-2 px-4 relative rounded-sm ${boxClass} hover:transition-colors hover:filter hover:bg-opacity-20`}
-                style={boxStyle && {...boxStyle}}
-            >
-                <div
-                    tabIndex={0}
-                    className={`dropdown__header ${headerClass} flex justify-between ${selection.length > 0 ? 'opacity-1' : 'opacity-50'}`}
-                    style={headerStyle && {...headerStyle}}
-                    role="button"
-                    onClick={() => setOpen(!open)}
-                >
-                    <p className="dropdown__header__title">{displayTitle}</p>
-                    <span className="dropdown__header__icon">
-                    <img src={arrow} alt="arrow" className={`${displayArrow ? "block" : "hidden"}`}/>
-                </span>
-                </div>
-                {open && (
-                    <ul className={`dropdown__list max-h-96 overflow-auto border border-secondary/10 mt-2 z-10 absolute left-0 ${listClass} ${position === "top" ? "bottom-full" : ""}`}
-                        style={listStyle && {...listStyle}}>
-                        {displayReset && (
-                            <li className={`dropdown__list__item p-2 border-t-2 border-secondary/10 ${itemClass} hover:transition-colors hover:bg-opacity-10`}
-                                key={"reset"} style={itemStyle && {...itemStyle}}>
-                                <button type="button" onClick={() => {
-                                    setSelection([]);
-                                    setOpen(false)
-                                }}
-                                        className={"w-full h-full text-left"}>
-                                    <span>-- Reset --</span>
-                                </button>
-                            </li>
-                        )}
-                        {items.map(item => (
-                            <li className={`dropdown__list__item p-2 border-t-2 border-secondary/10 ${itemClass} hover:transition-colors hover:bg-black/10`}
-                                key={item.id} style={itemStyle && {...itemStyle}}>
-                                <button type="button" onClick={() => toggle(item.id)}
-                                        className={"w-full h-full text-left"}>
-                                    {multiSelect && (
-                                        <input type="checkbox" className={"mr-3"}
-                                               checked={selection.includes(item.id)}/>
-                                    )}
-                                    <span>{item.value}</span>
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
+            <div className={`${dropdownClass}`} style={dropdownStyle && {...dropdownStyle}}>
+                <input id={id} name={id} type={"hidden"} value={selection.join(",")}/>
+                {displayLabel && (
+                    <p className={`text-sm font-pt mb-2 ${labelClass}`}
+                       style={labelStyle && {...labelStyle}}>{label}</p>
                 )}
+                <div
+                    className={`py-2 px-4 relative rounded-sm ${boxClass} hover:transition-colors hover:filter hover:bg-opacity-20`}
+                    style={boxStyle && {...boxStyle}}
+                >
+                    <div
+                        tabIndex={0}
+                        className={`${headerClass} flex justify-between ${selection.length > 0 ? 'opacity-1' : 'opacity-50'}`}
+                        style={headerStyle && {...headerStyle}}
+                        role="button"
+                        onClick={() => setOpen(!open)}
+                    >
+                        <p>{displayTitle}</p>
+                        <span>
+                    <img src={customImage ?? arrow} alt="arrow" className={`${displayArrow ? "block" : "hidden"}`}/>
+                </span>
+                    </div>
+                    {open && (
+                        <ul className={`max-h-96 overflow-auto border border-secondary/10 mt-2 z-10 absolute left-0 ${listClass} ${position === "top" ? "bottom-full" : ""}`}
+                            style={listStyle && {...listStyle}}>
+                            {displayReset && (
+                                <li className={`p-2 border-t-2 border-secondary/10 ${itemClass} hover:transition-colors hover:bg-opacity-10`}
+                                    key={"reset"} style={itemStyle && {...itemStyle}}>
+                                    <button type="button" onClick={() => {
+                                        setSelection([]);
+                                        setOpen(false)
+                                    }}
+                                            className={"w-full h-full text-left"}>
+                                        <span>-- Reset --</span>
+                                    </button>
+                                </li>
+                            )}
+                            {items.map(item => (
+                                <li className={`p-2 border-t-2 border-secondary/10 ${itemClass} hover:transition-colors hover:bg-black/10`}
+                                    key={item.id} style={itemStyle && {...itemStyle}}>
+                                    <button type="button" onClick={() => toggle(item.id)}
+                                            className={"w-full h-full text-left"}>
+                                        {multiSelect && (
+                                            <input type="checkbox" className={"mr-3"}
+                                                   checked={selection.includes(item.id)}/>
+                                        )}
+                                        <span>{item.value}</span>
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </div>
-        </div>
         </>
     )
 }
