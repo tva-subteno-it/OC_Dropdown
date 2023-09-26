@@ -3,7 +3,7 @@
 ## Preview
 
 Here you have a preview of the most basic dropdown without any customization.
-![img.png](img/img.png)
+![img.png](https://github.com/tva-subteno-it/OC_Dropdown/blob/main/img/img.png?raw=true)
 
 ## Minimum requirements
 
@@ -41,7 +41,7 @@ All available class:
 </td>
 <td>
 
-![img_1.png](img/img_10.png)
+![img_1.png](https://github.com/tva-subteno-it/OC_Dropdown/blob/main/img/img_10.png?raw=true)
 
 </td>
 </tr>
@@ -70,7 +70,7 @@ In addition to their corresponding class, you can pass the same attribute with t
 </td>
 <td>
 
-![img.png](img/img_9.png)
+![img.png](https://github.com/tva-subteno-it/OC_Dropdown/blob/main/img/img_9.png?raw=true)
 
 </td>
 </tr>
@@ -134,7 +134,7 @@ In addition to their corresponding class, you can pass the same attribute with t
 </td>
 <td>
 
-![img_2.png](img/img_2.png)
+![img_2.png](https://github.com/tva-subteno-it/OC_Dropdown/blob/main/img/img_2.png?raw=true)
 
 </td>
 </tr>
@@ -145,35 +145,35 @@ In addition to their corresponding class, you can pass the same attribute with t
 
 - `multiSelect (boolean)`: if true, the dropdown will allow multiple selection. If false, only one item can be selected at a time. The default value is false.
 
-  `multiSelect={true}`: ![img_3.png](img/img_3.png)
+  `multiSelect={true}`: ![img_3.png](https://github.com/tva-subteno-it/OC_Dropdown/blob/main/img/img_3.png?raw=true)
 
 <br/>
 
 - `displayArrow (boolean)`: if true, the arrow icon will be displayed. If false, the arrow icon will be hidden. The default value is true.
 
-  `displayArrow={false}`: ![img_4.png](img/img_4.png)
+  `displayArrow={false}`: ![img_4.png](https://github.com/tva-subteno-it/OC_Dropdown/blob/main/img/img_4.png?raw=true)
 
 <br/>
 
 - `displayLabel (boolean)`: if true, the label will be displayed. If false, the label will be hidden. The default value is true.
 
-  `displayLabel={false}`: ![img_5.png](img/img_5.png)
+  `displayLabel={false}`: ![img_5.png](https://github.com/tva-subteno-it/OC_Dropdown/blob/main/img/img_5.png?raw=true)
 
 <br/>
 
 - `displayReset (boolean)`: if true, the reset button will be displayed. If false, the reset button will be hidden. The default value is true.
 
-  `displayReset={false}`: ![img_6.png](img/img_6.png)
+  `displayReset={false}`: ![img_6.png](https://github.com/tva-subteno-it/OC_Dropdown/blob/main/img/img_6.png?raw=true)
 
 <br/>
 
 
 - `position ("top" | "bottom")`: the position of the dropdown box. The default value is bottom.
 
-  `position={"top"}`: ![img_7.png](img/img_7.png)
+  `position={"top"}`: ![img_7.png](https://github.com/tva-subteno-it/OC_Dropdown/blob/main/img/img_7.png?raw=true)
 
 <br/>
 
 - `customImage (string)` : change the arrow icon.
 
-  `customImage={"./src/assets/arrow.png"}`: ![img_8.png](img/img_8.png)
+  `customImage={"./src/assets/arrow.png"}`: ![img_8.png](https://github.com/tva-subteno-it/OC_Dropdown/blob/main/img/img_8.png?raw=true)
